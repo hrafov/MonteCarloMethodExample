@@ -1,0 +1,36 @@
+/* 
+ 	Test area is a rectangle with sides 1x1  
+    s - area for calculation situated in test area        
+ 	
+ 	s = 0.22 - 22 rectangles in our test case        
+ 	for i = 0, x1 = Math.ramdom(), y1 = Math.random()
+ 	if point(x,y) within s sumOfPointInS1++ and so on
+ 	n - number of tries
+*/
+public class MonteCarloMethod1 {
+	public static void main(String[] args) {
+		
+		double x, y;
+		double s;
+		int sumOfPointsInS;
+		int n = 10000; 
+		
+		sumOfPointsInS = 0;		
+		for (int i = 0; i < n; i++) {			
+			x = Math.random();
+			y = Math.random();
+			System.out.format("\n i = %d x = %.2f y = %.2f", i, x, y);
+			if( ((x > 0.1 & x < 0.2) & (y > 0.7 & y < 0.8)) ||			
+			    ((x > 0.2 & x < 0.4) & (y > 0.2 & y < 0.9)) ||			
+			    ((x > 0.4 & x < 0.5) & (y > 0.1 & y < 0.2)) ||			
+			    ((x > 0.4 & x < 0.9) & (y > 0.2 & y < 0.3)) ||				
+		        ((x > 0.7 & x < 0.8) & (y > 0.3 & y < 0.4)) ) sumOfPointsInS++;			
+			System.out.printf("  sumOfPointInS = " + sumOfPointsInS);
+		}
+		
+		s = (double) sumOfPointsInS / (double) n;
+		System.out.format("\n\n s = %.4f%n%n", s);
+		
+	}
+
+}
